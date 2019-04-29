@@ -3,4 +3,4 @@ project(abstructVM)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(abstructVM main.cpp)
+add_executable(abstractVM main.cpp)

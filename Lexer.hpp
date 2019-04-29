@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Lexer.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvoytenk <vvoytenk@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 16:52:46 by vvoytenk          #+#    #+#             */
-/*   Updated: 2018/11/28 16:52:47 by vvoytenk         ###   ########.fr       */
+/*   Created: 2018/11/28 16:52:14 by vvoytenk          #+#    #+#             */
+/*   Updated: 2018/11/28 16:52:16 by vvoytenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LEXER_HPP
+#define LEXER_HPP
+
 #include <iostream>
-#include "Lexer.hpp"
-#include "Parser.hpp"
+#include <string>
 
-int main(const int argc, const char* argv[])
+class Lexer
 {
-	Lexer	l;
-	Parser	p;
+    public:
+        Lexer();
+        Lexer(const Lexer &src);
+        ~Lexer();
 
-	if (argc == 1)
-	{
-		l.start(NULL);
-	}
-	if (argc == 2)
-	{
-		l.start(argv[1]);
-	}
-    return 0;
-}
+        Lexer &operator=(Lexer const &src);
+
+        void	start(const char *file);
+    private:
+    	std::string line;
+    
+};
+
+#endif

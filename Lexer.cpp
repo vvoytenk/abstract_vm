@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Lexer.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvoytenk <vvoytenk@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 16:52:46 by vvoytenk          #+#    #+#             */
-/*   Updated: 2018/11/28 16:52:47 by vvoytenk         ###   ########.fr       */
+/*   Created: 2018/11/28 16:52:20 by vvoytenk          #+#    #+#             */
+/*   Updated: 2018/11/28 16:52:21 by vvoytenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Lexer.hpp"
-#include "Parser.hpp"
 
-int main(const int argc, const char* argv[])
+Lexer::Lexer(){}
+
+Lexer::~Lexer(){}
+
+Lexer::Lexer(const Lexer &src)
 {
-	Lexer	l;
-	Parser	p;
+	*this = src;
+	return ;
+}
 
-	if (argc == 1)
+Lexer &Lexer::operator=(const Lexer &src)
+{
+	line = src->line; //huinya
+	return *this;
+}
+
+
+void	Lexer::start(const char *file)
+{
+
+	if (!file)
 	{
-		l.start(NULL);
+		while(std::getline(std::cin, line))
+		{
+
+		}
 	}
-	if (argc == 2)
-	{
-		l.start(argv[1]);
-	}
-    return 0;
 }
